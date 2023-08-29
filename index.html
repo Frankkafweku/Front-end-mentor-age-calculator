@@ -16,18 +16,21 @@
 
 <body>
 
-  <form class="main">
+  <form class="main" id="form">
     <div class="inputs">
       <label for="number">Day</label>
       <input placeholder="DD" type="number" name="number" class="digits"  id="day-inp">
+      <p id="day-error" class="errors"></p>
     </div>
     <div class="inputs">
       <label for="month">Month</label>
       <input placeholder="MM" type="number" name="month"  class="digits" id="month-inp">
+      <p id="month-error" class="errors"></p>
     </div>
     <div class="inputs">
       <label for="number">Year</label>
       <input placeholder=" YYYY" type="number" name="year"  class="digits" id="year-inp">
+      <p id="year-error" class="errors"></p>
     </div>
     <button id="submit-btn">Submit</button>
 

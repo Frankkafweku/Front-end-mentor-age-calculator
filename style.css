@@ -46,3 +46,9 @@ p{
 #submit-btn{
     height: 20px;
 }
+
+.errors{
+    color: red;
+    font-size: 12px;
+
+}
