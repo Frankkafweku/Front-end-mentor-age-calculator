@@ -45,9 +45,7 @@ function findMonth(currentMonth, birthM, ageInYears){
     }
 }
 
-const dayInt = parseInt(day.value);
-const monthInt = parseInt(month.value);
-const yearInt = parseInt(year.value);
+
 
 function isValidDate(dayInt, monthInt, yearInt) {
     const daysInMonth = new Date(yearInt, monthInt, 0).getDate();
@@ -57,6 +55,7 @@ function isValidDate(dayInt, monthInt, yearInt) {
 
 
 form.addEventListener('submit',(e)=>{
+    
     if( day.value === "" || day.value === null){
         
         dayError.innerText="This field is required!!"
@@ -66,6 +65,7 @@ form.addEventListener('submit',(e)=>{
     } else{ 
          birthD = parseInt(day.value)
          findDay(currentDay, birthD)
+         dayError.innerText=""
         
     }
 
@@ -77,6 +77,7 @@ form.addEventListener('submit',(e)=>{
     } else{
         birthM = parseInt(month.value)
         findMonth(currentMonth, birthM, ageInYears)
+        monthError.innerText=""
 
     }
 
@@ -87,12 +88,10 @@ form.addEventListener('submit',(e)=>{
      } else{
         let ageInYears = currentYear - parseInt(year.value)
         yearSpan.innerHTML=ageInYears
+        yearError.innerText=""
      }
-     if(isValidDate(dayInt, monthInt, yearInt)){
-        console.log("valid");
-     } else{
-        console.log("invalid");
-     }
+
+     
 
     e.preventDefault();
 });
