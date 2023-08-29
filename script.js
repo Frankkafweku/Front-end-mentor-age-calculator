@@ -24,8 +24,10 @@ let ageInDays = 0;
 var ageInMonths = 0;
 
 
-birthD = parseInt(day.value)
+
 function findDay(currentDay, birthD){
+    birthD = parseInt(day.value)
+    let ageInYears = currentYear - parseInt(year.value)
     if(currentDay >= birthD ){
         ageInDays =  currentDay - birthD
         daySpan.innerHTML=ageInDays

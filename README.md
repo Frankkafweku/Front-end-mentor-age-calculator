@@ -25,8 +25,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [GitHub](https://github.com/Frankkafweku/Front-end-mentor-age-calculator)
+- Live Site URL: [live site ](https://frankkafweku.github.io/Front-end-mentor-age-calculator/)
 
 
 ### Built with
