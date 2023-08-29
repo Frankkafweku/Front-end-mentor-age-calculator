@@ -8,13 +8,17 @@ const monthError = document.getElementById("month-error");
 const yearError = document.getElementById("year-error");
 const yearSpan = document.getElementById("year-span")
 const daySpan = document.getElementById("day-span")
+const monthSpan = document.getElementById("month-span")
 
 const currentDate = new Date();
 const currentYear = currentDate.getFullYear();
 const currentDay = currentDate.getDate();
+const currentMonth = currentDate.getMonth()+1;
+
 
 var ageInYears = 0;
 let ageInDays = 0;
+var ageInMonths = 0;
 
 birthD = parseInt(day.value)
 function findDay(currentDay, birthD){
@@ -26,6 +30,19 @@ function findDay(currentDay, birthD){
         daySpan.innerHTML=ageInDays
     }
 }
+
+function findMonth(currentMonth, birthM, ageInYears){
+    if (currentMonth >= birthM){
+        ageInMonths = currentMonth - birthM
+        monthSpan.innerHTML = ageInMonths
+    } else if (currentMonth < birthM){
+         ageInYears = currentYear - parseInt(year.value)
+        yearSpan.innerHTML=ageInYears - 1
+    }
+}
+
+
+
 form.addEventListener('submit',(e)=>{
 
     if(day.value === "" || day.value === null){
@@ -38,20 +55,15 @@ form.addEventListener('submit',(e)=>{
         
     }
 
-    // If the current month is greater 
-    // than or equal to the birth month, 
-    // subtract the birth month from the
-    //  current month to get the age in 
-    //  months. If the current month is less
-    //   than the birth
-    //  month, subtract 1 from the age
-    //   in months and add 12 to the current 
-    //   month before subtracting the birth month.
-
+ 
     if(month.value === "" || month.value === null){
         monthError.innerText="This field is required!!"
     } else if (month.value > 12 || month.value < 1){
         monthError.innerText="Must be a valid month!!"
+    } else{
+        birthM = parseInt(month.value)
+        findMonth(currentMonth, birthM, ageInYears)
+
     }
 
     if(year.value === "" || year.value === null){
