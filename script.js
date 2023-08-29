@@ -6,19 +6,23 @@ const form = document.getElementById("form");
 const dayError = document.getElementById("day-error");
 const monthError = document.getElementById("month-error");
 const yearError = document.getElementById("year-error");
-const yearSpan = document.getElementById("year-span")
-const daySpan = document.getElementById("day-span")
-const monthSpan = document.getElementById("month-span")
-
+const yearSpan = document.getElementById("year-span");
+const daySpan = document.getElementById("day-span");
+const monthSpan = document.getElementById("month-span");
+const lables = document.getElementsByClassName(".lables")
 const currentDate = new Date();
 const currentYear = currentDate.getFullYear();
 const currentDay = currentDate.getDate();
 const currentMonth = currentDate.getMonth()+1;
 
 
+
+
+
 var ageInYears = 0;
 let ageInDays = 0;
 var ageInMonths = 0;
+
 
 birthD = parseInt(day.value)
 function findDay(currentDay, birthD){
@@ -41,12 +45,22 @@ function findMonth(currentMonth, birthM, ageInYears){
     }
 }
 
+const dayInt = parseInt(day.value);
+const monthInt = parseInt(month.value);
+const yearInt = parseInt(year.value);
+
+function isValidDate(dayInt, monthInt, yearInt) {
+    const daysInMonth = new Date(yearInt, monthInt, 0).getDate();
+    
+    return dayInt > 0 && dayInt <= daysInMonth && monthInt >= 1 && monthInt <= 12;
+}
 
 
 form.addEventListener('submit',(e)=>{
-
-    if(day.value === "" || day.value === null){
+    if( day.value === "" || day.value === null){
+        
         dayError.innerText="This field is required!!"
+
     } else if (day.value > 31 || day.value < 1){
         dayError.innerText="Must be a valid day!!"
     } else{ 
@@ -74,10 +88,13 @@ form.addEventListener('submit',(e)=>{
         let ageInYears = currentYear - parseInt(year.value)
         yearSpan.innerHTML=ageInYears
      }
-
-     
+     if(isValidDate(dayInt, monthInt, yearInt)){
+        console.log("valid");
+     } else{
+        console.log("invalid");
+     }
 
     e.preventDefault();
-})
+});
 
 
