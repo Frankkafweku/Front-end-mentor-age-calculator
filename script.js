@@ -6,18 +6,31 @@ const form = document.getElementById("form")
 const dayError = document.getElementById("day-error")
 const monthError = document.getElementById("month-error")
 const yearError = document.getElementById("year-error")
+const lables = document.getElementsByClassName
+
+const currentDate = new Date();
+const currentYear = currentDate.getFullYear();
 
 form.addEventListener('submit',(e)=>{
 
     if(day.value === "" || day.value === null){
         dayError.innerText="This field is required!!"
+    } else if (day.value > 31 || day.value < 1){
+        dayError.innerText="Must be a valid day!!"
     }
+
     if(month.value === "" || month.value === null){
         monthError.innerText="This field is required!!"
+    } else if (month.value > 12 || month.value < 1){
+        monthError.innerText="Must be a valid month!!"
     }
+
     if(year.value === "" || year.value === null){
         yearError.innerText="This field is required!!"
-    }
+     } else if (year.value > currentYear){
+        yearError.innerText="Must be in the past!!"
+     }
+
     e.preventDefault();
 })
 
