@@ -1,0 +1,48 @@
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: hsl(0, 0%, 86%);
+}
+.main{
+    background-color: hsl(0, 0%, 94%);
+    color: hsl(0, 1%, 44%); 
+    display: flex;
+    padding-top: 30px;
+    padding-left: 30px;
+    width: 60%;
+    height: 70vh;
+    border: solid transparent;
+    border-radius: 30px;
+
+ gap: 30px; 
+}
+
+.inputs{
+    display: flex;
+    flex-direction: column;
+}
+
+.digits{
+    width: 100px;
+    height: 40px;
+    border-radius: 8px;
+}
+#results{
+    width: 70%;
+    height: 350px;
+    position: relative;
+    right: 50%;
+    top: 20%;
+}
+
+p{
+    font-size: 32px;
+    color: #000;
+}
+
+#submit-btn{
+    height: 20px;
+}
